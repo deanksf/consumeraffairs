@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.postgres.fields import JSONField
 
 
 class Events(models.Model):
@@ -16,7 +15,7 @@ class Events(models.Model):
         QUESTION: Do we want to/are we able to keep track of the timezone of the user? Or should we
         convert this to a Unix timestamp to potentially make querying faster?
     creation_date = time record was saved
-    data = various metadata around the event.  Use JSON so we can expand/contract the data without
+    eye_data = various metadata around the event.  Use JSON so we can expand/contract the data without
         updating the DB structure.
     """
 
@@ -27,6 +26,4 @@ class Events(models.Model):
     action_category = models.CharField(max_length=255)
     action_timestamp = models.DateTimeField()
     creation_date = models.DateTimeField(auto_now_add=True)
-    data = (
-        preferences
-    ) = JSONField()  # 'Bucket' for various queryable data (using PostgreSQL)
+    eye_data = models.JSONField()
