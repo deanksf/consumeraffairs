@@ -3,6 +3,7 @@ from django.db import models
 
 class Events(models.Model):
     """
+    NOTE: I should have named this Event...
     id = Primary Key
     session_id = user id, browser session id or IP - whichever makes the most sense for "following" a user
     entity_id = "foreign key" linking to a site, API consumer, etc.  I would use an ID vs char for better indexing.
@@ -27,3 +28,6 @@ class Events(models.Model):
     action_timestamp = models.DateTimeField()
     creation_date = models.DateTimeField(auto_now_add=True)
     eye_data = models.JSONField()
+
+    def __str__(self):
+        return f"{self.action_name} for entity {self.entity_id} on {self.action_timestamp}"

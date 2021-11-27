@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'consumeraffairs',
+    'consumeraffairsapi.apps.ConsumeraffairsapiConfig',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
