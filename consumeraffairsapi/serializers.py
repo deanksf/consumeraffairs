@@ -24,3 +24,7 @@ class EventsSerializer(serializers.ModelSerializer):
         if value not in self.ACTION_CATEGORIES[category]:
             raise serializers.ValidationError(f"'action_name': '{value}' does not belong to 'action_category': '{category}'.")
         return value
+
+    # TODO: This is where custom validation can occur depending upon the action_name or action_category
+    def custom_validation(self):
+        pass
